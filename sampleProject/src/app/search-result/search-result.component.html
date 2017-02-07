@@ -1,0 +1,10 @@
+<p>
+  search-result works!
+</p>
+
+<form [formGroup]="searchResults" >
+	<div class="">
+		<label for="name">Name</label>
+		<input class="form-control" type="text" id="name" placeholder="John" [formControl]="searchResults.controls['name']">
+	</div>
+</form>
