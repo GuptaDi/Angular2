@@ -19,6 +19,10 @@ export class SearchResultComponent implements OnInit {
     public sortOrder = "asc";
 searchResults : any;
 public lookupData : any;
+res : any;
+
+id : number;
+name: string;
     constructor(private searchRes : SearchResultService) {
     	this.searchResults = searchRes;
     }
@@ -31,6 +35,16 @@ console.log("###");
             this.lookupData = this.searchResults.searchLookupResults();
 
            // this.searchLookupResults();
+           this.res = this.searchResults.searchFakeService().subscribe(data => {
+                            this.id = data.id;
+                            this.name = data.name;
+
+console.log(data[0].id);
+
+                            });
+                            console.log(":$$$4");
+                            console.log(this.res);
+
     }
 
     public toInt(num: string) {
