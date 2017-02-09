@@ -19,7 +19,8 @@ export class SearchResultComponent implements OnInit {
     public sortOrder = "asc";
 searchResults : any;
 public lookupData : any;
-res : any;
+public res : any;
+public datanew : any;
 
 id : number;
 name: string;
@@ -28,16 +29,11 @@ name: string;
     }
 
     ngOnInit(): void {
-		console.log(this.searchResults.searchLookupResults());
-console.log("###");
-//console.log(aa);
-	   //myService.someEvent.subscribe(value => this.someMethod(value));
             this.lookupData = this.searchResults.searchLookupResults();
 
-           // this.searchLookupResults();
-           this.res = this.searchResults.searchFakeService().subscribe(data => {
-                            this.id = data.id;
-                            this.name = data.name;
+           this.searchResults.searchFakeService().subscribe(data => {
+                           
+                            this.lookupData = data;
 
 console.log(data[0].id);
 
