@@ -5,7 +5,7 @@
 
 <div class="jumbotron row">
 <div class="col-4 col-lg-4 col-sm-4 content-alignment">
-<form #lookupForm="ngForm" (ngSubmit)="searchRecords(lookupForm)" > <!--   [formGroup]="loginForm" -->
+<form #lookupForm="ngForm" (ngSubmit)="searchRecords(lookupForm.value)" > <!--   [formGroup]="loginForm" -->
 
 <div class="form-group">
 <select  #mainFilterVal (change)="mainFilter(mainFilterVal.value)" >
@@ -14,19 +14,19 @@
 </div>
 
 <div *ngIf="(mainFilterVal.value == 'tag')" class="form-group">
-<textarea name="lookup" id="lookup" class="form-control" required="required" [(ngModel)]= "assetTag"></textarea>
+<textarea name="lookup" id="lookup" class="form-control"  [(ngModel)]= "assetTag"></textarea>
 </div>
 
 
 
 <!--<label for = "lookup">Asset Tag</label> -->
 <div *ngIf="(mainFilterVal.value == 'sn')" class="form-group" >
-<textarea name="lookup" id="lookup" required="required" class="form-control" [(ngModel)]= "snTag"></textarea>
+<textarea name="lookup" id="lookup"  class="form-control" [(ngModel)]= "snTag"></textarea>
 </div>
 
 <div *ngIf="(mainFilterVal.value == 'material')" class="form-group">
 <label for="material_asset_type">Asset Type</label>
-<select (change)="getMatData()" id="material_asset_type" name="material_asset_type" class="form-control" required="required">
+<select (change)="getMatData()" id="material_asset_type" name="material_asset_type" class="form-control" >
 	<option [value]="Chassis"> Chassis </option>
 	<option> Server </option>
 </select>
@@ -44,7 +44,7 @@
 </div>
 
 <!-- (click)="searchRecords(lookupForm)" -->
-{{lookupForm.value}}
+<!-- {{lookupForm.value}} -->
 
 </form>
 </div>

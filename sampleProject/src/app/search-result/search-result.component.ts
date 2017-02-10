@@ -17,25 +17,25 @@ export class SearchResultComponent implements OnInit {
     public rowsOnPage = 10;
     public sortBy = "email";
     public sortOrder = "asc";
-searchResults : any;
-public lookupData : any;
-public res : any;
-public datanew : any;
+    searchResults : any;
+    public lookupData : any;
+    public res : any;
+    public datanew : any;
 
-id : number;
-name: string;
+    id : number;
+    name: string;
     constructor(private searchRes : SearchResultService) {
     	this.searchResults = searchRes;
     }
 
+    lookupFilters = [
+        {fieldname: 'sn',  fieldDescription: 'Serial Number'},
+        {fieldname: 'tag',  fieldDescription: 'Asset Tag'},
+        {fieldname: 'material',  fieldDescription: 'Material'}
+    ];
+
     ngOnInit(): void {
             this.lookupData = this.searchResults.searchLookupResults();
-
-           this.searchResults.searchFakeService().subscribe(data => {
-                           
-                            this.lookupData = data;
-                //console.log(data[0].id);
-                            });
     }
 
     public toInt(num: string) {
@@ -46,9 +46,13 @@ name: string;
         return a.city.length;
     }
 
-    searchLookupResults() : void {
-    console.log(this.searchResults.searchLookupResults());
-
+    searchRecords(formData) : void {
+        console.log(formData);
+        // pass tag value
+        var tag = formData;
+        this.searchResults.searchFakeService().subscribe(data => {
+            this.lookupData = data;
+            //console.log(data[0].id);
+        });
     }
-
 }
