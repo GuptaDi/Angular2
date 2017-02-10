@@ -11,13 +11,15 @@ import {DataTableModule} from "angular2-datatable";
 
 import { AppComponent } from './app.component';
 import { SearchResultComponent } from './search-result/search-result.component';
-/*
+
 // create route object , which takes 2 arguments - path and component
 const appRoutes: Routes = [
   {path: 'search-result', component: SearchResultComponent },
   {path: '', redirectTo: '/search-result', pathMatch: 'full'},
   {path: '', redirectTo: '/search-result', pathMatch: 'full'}
-] */
+] 
+
+const routing = RouterModule.forRoot(appRoutes);
 
 
 @NgModule({
@@ -30,9 +32,9 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     DataTableModule,
-    HttpModule //,
+    HttpModule,
     // Add route object
-   // appRoutes
+    routing
   // AgGridModule.forRoot() ,
 
   ],

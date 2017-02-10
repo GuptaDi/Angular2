@@ -34,13 +34,8 @@ name: string;
            this.searchResults.searchFakeService().subscribe(data => {
                            
                             this.lookupData = data;
-
-console.log(data[0].id);
-
+                //console.log(data[0].id);
                             });
-                            console.log(":$$$4");
-                            console.log(this.res);
-
     }
 
     public toInt(num: string) {
